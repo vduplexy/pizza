@@ -1,5 +1,6 @@
 "use client";
 
+import { toASCII } from "punycode";
 import React, { useEffect, useState } from "react";
 
 type Props = {
@@ -15,9 +16,12 @@ const Price = ({ price, id, options }: Props) => {
 
   useEffect(() => {
     setTotal(
-      quantity * (options ? price + options[selected].additionalPrice : price)
+      quantity * (options ? price * 20 + options[selected].additionalPrice * 20 : price * 20)
     );
+    console.log(total);
   }, [quantity, selected, options, price]);
+
+  
 
   return (
     <div className="flex flex-col gap-4">
