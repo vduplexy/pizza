@@ -18,7 +18,6 @@ const Price = ({ price, id, options }: Props) => {
     setTotal(
       quantity * (options ? price * 20 + options[selected].additionalPrice * 20 : price * 20)
     );
-    console.log(total);
   }, [quantity, selected, options, price]);
 
   
